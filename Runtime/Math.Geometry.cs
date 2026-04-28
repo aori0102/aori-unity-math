@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Aori
 {
     /// <summary>
-    /// Handles some math problems.
+    /// Provides geometry-focused math helpers for polygons, segments, and vector calculations.
     /// </summary>
     public static partial class Math
     {
