@@ -23,7 +23,7 @@ namespace Aori
                 return 0;
             }
 
-            return (value - min) / (max - min);
+            return Mathf.Clamp01((value - min) / (max - min));
         }
 
         /// <summary>
