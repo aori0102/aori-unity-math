@@ -1,6 +1,6 @@
 # Package description
 
-`com.aori.unity.math` is a small Unity math utility package that provides convenience 
+`com.aori.unity.math` is a small Unity math utility package that provides convenience
 methods for normalizing values, flattening vectors, and solving common 2D/3D
 geometry problems such as polygon tests, segment intersection, projection,
 and angle calculation.
@@ -36,7 +36,7 @@ None.
 
 * [
   <b>Aori.Math.IsPointInsidePolygon(</b><i>Vector2 point, IReadOnlyList<Vector2>
-vertices</i><b>)</b>
+  vertices</i><b>)</b>
   ](#aorimathispointinsidepolygon)
 
 * [
@@ -45,7 +45,7 @@ vertices</i><b>)</b>
 
 * [
   <b>Aori.Math.SegmentsIntersect(</b><i>Vector2 firstStart, Vector2 firstEnd,
-Vector2secondStart, Vector2 secondEnd</i><b>)</b>
+  Vector2secondStart, Vector2 secondEnd</i><b>)</b>
   ](#aorimathsegmentsintersect)
 
 * [
@@ -61,13 +61,13 @@ Vector2secondStart, Vector2 secondEnd</i><b>)</b>
   ](#aorimathcross2d)
 
 * [
-  <b>Aori.Math.TryProjectPointToSegmentXZ(</b><i>Vector3 point, Vector3 segmentStart, 
-Vector3 segmentEnd, out float t,out float distanceSquared</i><b>)</b>
+  <b>Aori.Math.TryProjectPointToSegmentXZ(</b><i>Vector3 point, Vector3 segmentStart,
+  Vector3 segmentEnd, out float t,out float distanceSquared</i><b>)</b>
   ](#aorimathtryprojectpointtosegmentxz)
 
 * [
-  <b>Aori.Math.CalculateAngleBetweenEdges(</b><i>Vector3 center, Vector3 firstNeighbor, 
-Vector3 secondNeighbor</i><b>)</b>
+  <b>Aori.Math.CalculateAngleBetweenEdges(</b><i>Vector3 center, Vector3 firstNeighbor,
+  Vector3 secondNeighbor</i><b>)</b>
   ](#aorimathcalculateanglebetweenedges)
 
 ***
@@ -76,20 +76,22 @@ Vector3 secondNeighbor</i><b>)</b>
 
 ### Declaration
 
-`Aori.Math.Normalized(this float value, float min, float max)`
+```csharp
+public static float Aori.Math.Normalized(this float value, float min, float max)
+```
 
 ### Description
 
-Normalizes a value into the range `[0, 1]` using the supplied bounds. Returns 
+Normalizes a value into the range `[0, 1]` using the supplied bounds. Returns
 `0` when `min` and `max` are equal.
 
 ### Parameters
 
-| Parameter | Type         | Description                                 |
-|:----------|:-------------|:--------------------------------------------|
-| `value`   | `this float` | The value to normalize.                     |
-| `min`     | `float`      | The lower bound of the normalization range. |
-| `max`     | `float`      | The upper bound of the normalization range. |
+| Parameter | Type    | Description                                 |
+|:----------|:--------|:--------------------------------------------|
+| `value`   | `float` | The value to normalize.                     |
+| `min`     | `float` | The lower bound of the normalization range. |
+| `max`     | `float` | The upper bound of the normalization range. |
 
 ### Returns
 
@@ -97,7 +99,7 @@ A normalized value in the range `[0, 1]` corresponding to `value`'s position
 between `min` and `max`. Returns `0`
 if `min` and `max` are equal.
 
-If `value < min` or `value > max`, the returned value will be clamped into the 
+If `value < min` or `value > max`, the returned value will be clamped into the
 range `[0, 1]`.
 
 ***
@@ -106,7 +108,9 @@ range `[0, 1]`.
 
 ### Declaration
 
-`Aori.Math.Flatten(this Vector3 v)`
+```csharp
+public static Vector3 Aori.Math.Flatten(this Vector3 v)
+```
 
 ### Description
 
@@ -128,7 +132,9 @@ A copy of `v` with its `Y` component set to `0`.
 
 ### Declaration
 
-`Aori.Math.IsPointInsidePolygon(Vector2 point, IReadOnlyList<Vector2> vertices)`
+```csharp
+public static bool Aori.Math.IsPointInsidePolygon(Vector2 point, IReadOnlyList<Vector2> vertices)
+```
 
 ### Description
 
@@ -151,7 +157,9 @@ Determines whether `point` is inside the boundary of a polygon defined by `verti
 
 ### Declaration
 
-`Aori.Math.ToXZ(Vector3 position)`
+```csharp
+public static Vector2 Aori.Math.ToXZ(Vector3 position)
+```
 
 ### Description
 
@@ -173,8 +181,9 @@ XZ plane coordinates as a `Vector2`.
 
 ### Declaration
 
-`Aori.Math.SegmentsIntersect(Vector2 firstStart, Vector2 firstEnd, Vector2 
-secondStart, Vector2 secondEnd)`
+```csharp
+public static bool Aori.Math.SegmentsIntersect(Vector2 firstStart, Vector2 firstEnd, Vector2 secondStart, Vector2 secondEnd)
+```
 
 ### Description
 
@@ -199,7 +208,9 @@ Determines whether two finite 2D segments intersect, including collinear overlap
 
 ### Declaration
 
-`Aori.Math.Orientation(Vector2 first, Vector2 second, Vector2 third)`
+```csharp
+public static int Aori.Math.Orientation(Vector2 first, Vector2 second, Vector2 third)
+```
 
 ### Description
 
@@ -223,7 +234,9 @@ Computes the orientation of an ordered triplet in 2D.
 
 ### Declaration
 
-`Aori.Math.OnSegment(Vector2 first, Vector2 point, Vector2 second)`
+```csharp
+public static bool Aori.Math.OnSegment(Vector2 first, Vector2 point, Vector2 second)
+```
 
 ### Description
 
@@ -247,7 +260,9 @@ Checks whether a point lies on the closed segment defined by two endpoints.
 
 ### Declaration
 
-`Aori.Math.Cross2D(Vector2 first, Vector2 second)`
+```csharp
+public static float Aori.Math.Cross2D(Vector2 first, Vector2 second)
+```
 
 ### Description
 
@@ -270,12 +285,13 @@ The scalar cross product value.
 
 ### Declaration
 
-`Aori.Math.TryProjectPointToSegmentXZ(Vector3 point, Vector3 segmentStart, 
-Vector3 segmentEnd, out float t, out float distanceSquared)`
+```csharp
+public static bool Aori.Math.TryProjectPointToSegmentXZ(Vector3 point, Vector3 segmentStart, Vector3 segmentEnd, out float t, out float distanceSquared)
+```
 
 ### Description
 
-Projects a point to a segment on XZ and returns the normalized parameter plus 
+Projects a point to a segment on XZ and returns the normalized parameter plus
 squared distance. Rejects projections that
 are too close to segment endpoints.
 
@@ -291,7 +307,7 @@ are too close to segment endpoints.
 
 ### Returns
 
-`true` if the projection is valid and lies strictly within the segment bounds; 
+`true` if the projection is valid and lies strictly within the segment bounds;
 otherwise, `false`.
 
 ***
@@ -300,8 +316,9 @@ otherwise, `false`.
 
 ### Declaration
 
-`Aori.Math.CalculateAngleBetweenEdges(Vector3 center, Vector3 firstNeighbor,
- Vector3 secondNeighbor)`
+```csharp
+public static float Aori.Math.CalculateAngleBetweenEdges(Vector3 center, Vector3 firstNeighbor, Vector3 secondNeighbor)
+```
 
 ### Description
 
