@@ -121,7 +121,7 @@ namespace Aori
         /// <param name="first">First point.</param>
         /// <param name="second">Second point.</param>
         /// <param name="third">Third point.</param>
-        /// <returns>0 for collinear, 1 for clockwise, 2 for counter-clockwise.</returns>
+        /// <returns>0 for collinear, 1 for clockwise, -1 for counter-clockwise.</returns>
         public static int Orientation(Vector2 first, Vector2 second, Vector2 third)
         {
             var value = (second.y - first.y) * (third.x - second.x) -
@@ -132,7 +132,7 @@ namespace Aori
                 return 0;
             }
 
-            return value > 0f ? 1 : 2;
+            return value > 0f ? 1 : -1;
         }
 
         /// <summary>
